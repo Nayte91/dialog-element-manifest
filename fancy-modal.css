@@ -1,0 +1,55 @@
+#fancy-modal[open] {
+    display: grid;
+    grid-template-rows: 60px auto 75px;
+    max-width: 30rem;
+    padding: 0;
+}
+
+#fancy-modal::backdrop {
+    background-color: hsla(0, 100%, 0%, 0.75);
+}
+
+#fancy-modal[open] > form {
+    display: contents;
+}
+
+#fancy-modal[open] main,
+#fancy-modal[open] footer {
+    padding: 1rem;
+}
+
+#fancy-modal .dialog__header {
+    display: grid;
+    align-items: center;
+    grid-template-columns: auto 50px;
+    border-bottom: 1px solid var(--grey-color);
+}
+
+#fancy-modal .btn-close {
+    place-self: center;
+    background-color: unset;
+    border: none;
+    cursor: pointer;
+}
+
+#fancy-modal .btn-close::after {
+    content: 'X';
+    font-size: x-large;
+    color: var(--grey-color);
+}
+
+#fancy-modal .dialog__header > h1 {
+    margin: 0;
+    padding-left: 1rem;
+    font-size: larger;
+    font-weight: normal;
+    color: var(--grey-color);
+}
+
+#fancy-modal .dialog__footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0.5rem;
+}

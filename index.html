@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link rel="stylesheet" href="main.css" />
+        <link rel="stylesheet" href="fancy-modal.css" />
+        <script src="script.js" defer></script>
+        <title>Fun with dialog boxes</title>
+    </head>
+    <body>
+        <main class="page__main">
+            <h1>Hello from France</h1>
+            <section class="card">
+                <p>
+                    The HTMLDialogElement.showModal() method opens the dialog
+                    over the top of any other dialogs that might be present.
+                </p>
+
+                <p>
+                    The HTMLDialogElement.show() method of the HTMLDialogElement
+                    interface displays the dialog modelessly, i.e. still
+                    allowing interaction with content outside of the dialog.
+                </p>
+
+                <p>
+                    The dialog tags are already in the DOM, but hidden by
+                    default. Using the show() or showModal() methods pop them
+                    up, and put the "open" attribute in the dialog element. And
+                    the close() method does the opposite.
+                </p>
+                <div class="card__buttons">
+                    <button class="cta" data-open-modal="vanilla-modal">
+                        Vanilla Modal
+                    </button>
+
+                    <button class="cta" data-open-modal="fancy-modal">
+                        Fancy Modal
+                    </button>
+
+                    <button class="cta" data-open-dialog="modeless">
+                        Modeless dialog
+                    </button>
+                </div>
+            </section>
+        </main>
+
+        <dialog id="vanilla-modal">
+            <header>
+                <h1>Vanilla modal</h1>
+            </header>
+
+            <main>
+                <p>This is a simple dialog, with bare minimum styling.</p>
+
+                <p>
+                    Nothing is needed : auto-focus-trap, aria labels, centering,
+                    grey background are already packed with the default
+                    behavior, saving few divs and lines of code.
+                </p>
+
+                <p>
+                    You can close the modal by pressing the close button or with
+                    keyboard's escape key.
+                </p>
+            </main>
+
+            <footer>
+                <button
+                    type="button"
+                    class="cta"
+                    data-close-dialog="vanilla-modal"
+                >
+                    Close
+                </button>
+            </footer>
+        </dialog>
+
+        <dialog id="fancy-modal">
+            <form method="dialog">
+                <header class="dialog__header">
+                    <h1>Fancy modal with form</h1>
+                    <button
+                        type="button"
+                        class="btn-close"
+                        data-close-dialog="fancy-modal"
+                        aria-label="Close"
+                    ></button>
+                </header>
+
+                <main>
+                    <h2>With more CSS</h2>
+                    <p>
+                        Notice backgroud darker, thanks to a
+                        #fancy-modal::backdrop property that you can customize
+                        with CSS line.
+                    </p>
+
+                    <p>
+                        Notice also that we must select #fancy-modal[open] with
+                        CSS to change the display mode.
+                    </p>
+
+                    <p>
+                        Notice that a form's "submit" button closes the modal as
+                        the HTMLDialogElement.close() method does.
+                    </p>
+                </main>
+
+                <footer class="dialog__footer">
+                    <button
+                        type="button"
+                        class="cta"
+                        data-close-dialog="fancy-modal"
+                        aria-label="Close"
+                    >
+                        Close
+                    </button>
+
+                    <button type="submit" value="toto" class="cta">
+                        Confirm
+                    </button>
+                </footer>
+            </form>
+        </dialog>
+
+        <dialog id="modeless">
+            <header>
+                <h1>Modeless dialog</h1>
+            </header>
+
+            <main>
+                <p>
+                    Modeless dialog doesn't keep focus and opens near the
+                    button.
+                </p>
+            </main>
+
+            <footer>
+                <button type="button" class="cta" data-close-dialog="modeless">
+                    Close
+                </button>
+            </footer>
+        </dialog>
+    </body>
+</html>

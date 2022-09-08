@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+    --ratio: 3.74;
+    --cta-color: rgb(0, 102, 254);
+    --light-color-bg: rgb(238, 241, 247);
+    --dark-color-bg: rgb(55, 65, 81);
+    --grey-color: rgb(107, 114, 128);
+    --leading: 0.025em;
+}
+
+html,
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.page__main {
+    width: 700px;
+    max-width: 100vw;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.card {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+}
+
+.page__main p {
+    color: var(--grey-color);
+    letter-spacing: var(--leading, 0.025em);
+    line-height: 1.625;
+}
+
+.card__buttons {
+    width: 100%;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.cta {
+    display: block;
+    width: calc(44px * var(--ratio));
+    height: 44px;
+    border-radius: calc(3px * var(--ratio));
+    border: none;
+    letter-spacing: calc(3 * var(--leading, 0.025em));
+    font-family: inherit;
+    color: var(--grey-color);
+    background-color: var(--light-color-bg);
+    font-size: large;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.cta:last-child {
+    margin-left: auto;
+}
